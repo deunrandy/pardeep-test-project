@@ -1,0 +1,18 @@
+<div class="content">
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+    <h2 *ngIf="isSuccess" class="success">Total Estimate is equal to Employee estimates</h2>
+    <h2 *ngIf="hasError" class="error">{{errorMessage}}</h2>
+    <h3 class="header">Project: Project 1</h3>
+    <h3>task*: <input type="text" formControlName="task"></h3>
+    <h3>Total Estimate*: <input type="number" formControlName="totalEstimate"></h3>
+    <h3>Employee Estimations <button type="button" (click)="addEmployee()">Add Employee</button></h3>
+
+    <div *ngFor="let employee of employees; let idx = index" class="employee">
+      <h3>Employee {{idx}}*:</h3>
+      <input type="number" [formControlName]="employee.id">
+      <button *ngIf="employees.length > 1" type="button" (click)="removeEmployee(employee.id)">remove</button>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ROUTES } from './shared/constants/utils.constant';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public ROUTES = ROUTES
   title = 'test-project';
 }
